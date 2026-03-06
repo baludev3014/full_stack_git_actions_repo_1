@@ -1,0 +1,49 @@
+name: FullStack Application with GitHub Actions
+
+on:
+  push:
+    branches: 
+      - dev
+  
+jobs:
+  # testing the dev repo
+  Testing:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    # setting checkout repo
+      - name: Setting up checkout Repo
+        uses: actions/checkout@v5
+      
+    # stting up a node environment
+      - name: Setting up a node environment
+        uses: actions/setup-node@v6
+
+    # testing application
+      - name: Testing the Application 
+        run: npm run test
+  
+  # installing 
+  Logging_app :
+
+    runs-on : ubuntu-latest
+
+    needs: 
+      - Testing
+
+    steps:
+      - name: Logging the msg
+        run: echo "Logged in the console ❤️❤️❤️."
+
+
+      
+
+      
+
+  
+    
+
+
+
+    
